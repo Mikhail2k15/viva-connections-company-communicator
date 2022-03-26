@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "company-communicator-adaptive-card-extension": {
+      "components": [
+        {
+          "entrypoint": "./lib/adaptiveCardExtensions/companyCommunicator/CompanyCommunicatorAdaptiveCardExtension.js",
+          "manifest": "./src/adaptiveCardExtensions/companyCommunicator/CompanyCommunicatorAdaptiveCardExtension.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "CompanyCommunicatorAdaptiveCardExtensionStrings": "lib/adaptiveCardExtensions/companyCommunicator/loc/{locale}.js"
+  }
+}
