@@ -4,11 +4,12 @@
 
 Short summary on functionality and used technologies.
 
-[picture of the solution in action, if possible]
+![ACEforCC](https://user-images.githubusercontent.com/11201670/160255163-9a0f4669-3cc1-4a6e-b713-027595fbe517.png)
+
 
 ## Used SharePoint Framework Version
 
-![version](https://img.shields.io/badge/version-1.13-green.svg)
+![version](https://img.shields.io/badge/version-1.14-green.svg)
 
 ## Applies to
 
