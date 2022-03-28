@@ -80,11 +80,13 @@ export class LargeCardView extends BaseImageCardView<ICompanyCommunicatorAdaptiv
   }
 
   public get onCardSelection(): IQuickViewCardAction | IExternalLinkCardAction | undefined {
-    return {
-      type: 'QuickView',
-      parameters: {
-        view: LARGE_QUICK_VIEW_REGISTRY_ID
-      }
-    };
+    if (this.state.messages?.length > 0) {
+      return {
+        type: 'QuickView',
+        parameters: {
+          view: LARGE_QUICK_VIEW_REGISTRY_ID
+        }
+      };
+    }
   }
 }

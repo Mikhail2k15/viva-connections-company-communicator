@@ -2,66 +2,14 @@
   "schema": "http://adaptivecards.io/schemas/adaptive-card.json",
   "type": "AdaptiveCard",
   "version": "1.2",
-  "body": [
-      {
-          "type": "ColumnSet",
-          "columns": [
-              {
-                  "type": "Column",
-                  "width": "15px",
-                  "items": [
-                      {
-                          "type": "Image",
-                          "url": "data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 2048 2048\"><path d=\"M1443 2045L421 1024 1443 3l90 90-930 931 930 931-90 90z\"></path></svg>",
-                          "selectAction": {
-                              "type": "Action.Submit",
-                              "title": "Previous",
-                              "data": {
-                                  "id": "prev",
-                                  "op": -1
-                              }
-                          }
-                      }
-                  ],
-                  "verticalContentAlignment": "Top",
-                  "style": "default"
-              },
-              {
-                  "type": "Column",
-                  "width": "stretch",
-                  "items": [
-                      {
-                          "type": "TextBlock",                           
-                          "weight": "Bolder",
-                          "text": "${title}",
-                          "wrap": true,
-                          "color": "accent",
-                          "horizontalAlignment": "Center"
-                      }
-                  ]
-              },
-              {
-                  "type": "Column",
-                  "width": "20px",
-                  "items": [
-                      {
-                          "type": "Image",
-                          "url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAAAzxJREFUeJzt17+KXWUUxuH3HHUmFiIIVmrhxFTiBUiCEEuLlAqSzsZLCXZWtiIhiiAp1NpK0UvwT0JIokFyBWIxFsHGzGJF/fa355w8D+x2sVbxg/0lAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAwm7UX2DFPJ7mU5GKSoyRPJrmX5IckXyT5db3VYD2bJO8nuZ/kuPj+TPJRkmdX2hFWcZDk89Rh/PP7JcnZVTaFyTZJrubR4/j7u5vk3Ar7wlTv5t/HIRIeC9s8+F36r4GIhL12If8vDpHsge3aC5xi5wfNeSHJNxHJThJI7aWBs0SyowQyj0h2kEBqtxeYKRL2xusZ80j3cGcvbZP8FJFA6e0sF4hI2HmbJB9HJFA6SHI9IoGSSKAhEmiIBBoigYZIoCESaIgEGiKBhkigIRJoiAQaIoGGSKAhEmiIBBoigYZIoCESaIgEGiKBhkigIRJoiAQaIoGGSKAhEmiIBBoigYZIoCESaIgEGiKBhkigIRJoiAQaIoHGrEhemXUQjDYjkltJnp90Dww3I5LPpl0DC5gRyWvTroEFLB3JB/NOgWUsGcl3E++AxSwVyd2ZR5wm27UXYKhtHkQy2vECM2GqM0m+zjK/WN9OvAOGWzKO4yRX5p0CYy0dx3GSV6ddAwPNiOPqtGtgoBlx3Ejy3KyDYJQZcdxOcjTrIBhlVhxnZx0Eo4gDCuKAwmHEAScSBxTEAQVxQEEcUBAHFMQBBXFAQRxQEAcUxAEFcUDhMMlXEQc8RBxQEAcUxAEFcUBBHFAQBxTEAQVxQEEcUBAHFA6TfBlxwEPEAQVxQEEcUBAHFMQBBXFAQRxQEAcUxAEFcUBhk+TTiANOdDnigBM9keRmxAEneiPieOxt117gFDu/0Nw7SS4mubHQfAYSSO3FBWaKY8cIZB5x7CCB1O4MniUO9sqFeJBDaZvk54gDSu9EHFDaJPkk4oDSQZJrefQ4fkzy8iqbwko2Sd5Lci91GH8k+TDJMyvtyAI2ay+wYw6TvJXkzSRHSZ5K8luS75NcT/L7eqsBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJxyfwEUKNSxv/U8vQAAAABJRU5ErkJggg==",
-                          "selectAction": {
-                              "type": "Action.Submit",
-                              "title": "Next",
-                              "data": {
-                                  "id": "next",
-                                  "op": 1
-                              }
-                          }
-                      }
-                  ],
-                  "verticalContentAlignment": "Top"
-              }
-          ]
-      },      
-  
+  "body": [                    
+    {
+        "type": "TextBlock",                           
+        "weight": "Bolder",
+        "text": "${title}",
+        "wrap": true,
+        "color": "accent"
+    },
     {
       "type": "Image",
       "url": "${imageLink}"

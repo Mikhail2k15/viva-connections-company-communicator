@@ -1,8 +1,6 @@
 import { BaseAdaptiveCardView, ISPFxAdaptiveCard } from "@microsoft/sp-adaptive-card-extension-base";
 import { ICompanyCommunicatorAdaptiveCardExtensionProps, ICompanyCommunicatorAdaptiveCardExtensionState } from "../CompanyCommunicatorAdaptiveCardExtension";
 
-
-
 export interface IDetailsQuickViewData {
     title: string;
     summary: string;
@@ -13,8 +11,8 @@ export interface IDetailsQuickViewData {
 }
 
 export class DetailsQuickView extends BaseAdaptiveCardView<ICompanyCommunicatorAdaptiveCardExtensionProps,
-ICompanyCommunicatorAdaptiveCardExtensionState,
-IDetailsQuickViewData> {
+  ICompanyCommunicatorAdaptiveCardExtensionState,
+  IDetailsQuickViewData> {
     public get data(): IDetailsQuickViewData {
         const message = this.state.messages[this.state.currentIndex];
         return {
@@ -44,16 +42,4 @@ IDetailsQuickViewData> {
         }
         return card;
     }
-    
-      /*public onAction(action: IActionArguments): void {
-        if (action.type === 'Submit') {
-          const { id, op } = action.data;
-          switch (id) {
-            case 'prev':
-            case 'next':
-            this.setState({ currentIndex: this.state.currentIndex + op });
-            break;
-          }
-        }
-      }*/ 
 }

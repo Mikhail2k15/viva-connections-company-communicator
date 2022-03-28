@@ -54,7 +54,7 @@ export default class CompanyCommunicatorAdaptiveCardExtension extends BaseAdapti
 
     if (this.properties.applicationIdUri && this.properties.resourceEndpoint) {
       this.aadClient = await this.context.aadHttpClientFactory.getClient(this.properties.applicationIdUri);
-      setTimeout(()=> { this.fetchData(this.aadClient, this.properties.resourceEndpoint) }, 500);
+      setTimeout(()=> { this.fetchData(this.aadClient, this.properties.resourceEndpoint); }, 500);
     }
 
     return Promise.resolve();
@@ -93,7 +93,7 @@ export default class CompanyCommunicatorAdaptiveCardExtension extends BaseAdapti
       }
     }
   }
-  
+
   private async fetchData(aadClient: AadHttpClient, resourceEndpoint: string) {
     
     const messagesService = new MessagesService(aadClient, resourceEndpoint);
