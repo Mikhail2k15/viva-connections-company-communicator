@@ -1,0 +1,64 @@
+{
+  "schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.2",
+  "body": [
+    {
+      "type": "Container",
+      "$data": "${items}",
+      "selectAction": {
+        "type": "Action.Submit",
+        "data": {
+          "id": "selectAction",
+          "itemId": "${id}"
+        }
+      },
+      "separator": true,
+      "items": [
+        {
+          "type": "TextBlock",
+          "text": "${title}",
+          "color": "dark",
+          "weight": "Bolder",
+          "size": "large",
+          "wrap": true,
+          "spacing": "None"
+        },
+        {
+          "type": "Image",
+          "spacing": "Default",
+          "url": "${imageLink}",
+          "size": "Stretch",
+          "width": "400px",
+          "altText": ""
+        },
+        {
+          "type": "TextBlock",
+          "text": "${summary}",
+          "separator": true,
+          "wrap": true
+        },
+        {
+          "type": "TextBlock",
+          "wrap": true,
+          "size": "Small",
+          "weight": "Lighter",
+          "text": "${author}"
+        },
+        {
+          "$when": "${buttonTitle!=''}",
+          "type": "ActionSet",
+          "actions": [
+              {
+                "id": "${id}",
+                "type": "Action.OpenUrl",              
+                "title": "${buttonTitle}",
+                "url": "${buttonLink}",
+                "style": "positive"
+              }
+            ]
+        }
+      ]
+    }
+  ] 
+}

@@ -17,14 +17,18 @@
   "preconfiguredEntries": [{
     "groupId": "bd067b1e-3ad5-4d5d-a5fe-505f07d7f59c", // Dashboard
     "group": { "default": "Dashboard" },
-    "title": { "default": "CompanyCommunicator" },
-    "description": { "default": "CompanyCommunicator description" },
-    "officeFabricIconFontName": "SharePointLogo",
-    "cardSize": "Large",
+    "title": { "default": "Company News" },
+    "description": { "default": "Company Communicator News" },
+    "officeFabricIconFontName": "megaphone",
     "properties": {
-      "title": "CompanyCommunicator",
-      "description": "CompanyCommunicator description",
-      "iconProperty": "" // Default to sharepointlogo
+      "title": "Company News",
+      "description": "Company Communicator News",
+      "iconProperty": "", // Default to sharepointlogo
+      "count": 5,
+      "summary": true,
+      "image": true,
+      "userappid": "148a66bb-e83d-425a-927d-09f4299a9274",
+      "teamsDeepLink": false
     }
   }]
 }
