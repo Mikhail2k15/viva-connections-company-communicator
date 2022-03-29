@@ -18,9 +18,8 @@
         {
           "type": "TextBlock",
           "text": "${title}",
-          "color": "dark",
+          "color": "accent",
           "weight": "Bolder",
-          "size": "large",
           "wrap": true,
           "spacing": "None"
         },
@@ -53,8 +52,7 @@
                 "id": "${id}",
                 "type": "Action.OpenUrl",              
                 "title": "${buttonTitle}",
-                "url": "${buttonLink}",
-                "style": "positive"
+                "url": "${buttonLink}"
               }
             ]
         }
