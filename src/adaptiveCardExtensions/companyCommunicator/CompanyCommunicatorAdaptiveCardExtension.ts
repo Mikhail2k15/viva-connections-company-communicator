@@ -10,8 +10,11 @@ import { LargeCardView } from './cardView/LargeCardView';
 import { MediumCardView } from './cardView/MediumCardView';
 import { ListQuickView } from './quickView/ListQuickView';
 import { DetailsQuickView } from './quickView/DetailsQuickView';
+import { Logger, LogLevel } from '@pnp/logging';
+import { AppInsightsTelemetryTracker } from '../../service/analytics/AppInsightsTelemetryTracker';
 
 export interface ICompanyCommunicatorAdaptiveCardExtensionProps {
+  aiKey: string;
   title: string;
   description: string;
   iconProperty: string;
@@ -45,6 +48,23 @@ export default class CompanyCommunicatorAdaptiveCardExtension extends BaseAdapti
       currentIndex: -1,
       messages: []
     };
+    Logger.activeLogLevel = LogLevel.Verbose;
+
+    if (this.properties.aiKey) {
+      Logger.log({
+        message: "Try to init AppInsights tracker",
+        data: { aiKey: this.properties.aiKey },
+        level: LogLevel.Verbose
+      });
+      let ai = new AppInsightsTelemetryTracker(this.properties.aiKey);         
+      ai.trackEvent(this.context.deviceContext);
+      
+      try{
+        
+        Logger.subscribe(ai);   
+      }
+      catch {} 
+    }
 
     this.cardNavigator.register(LARGE_CARD_VIEW_REGISTRY_ID, () => new LargeCardView());
     this.cardNavigator.register(MEDIUM_CARD_VIEW_REGISTRY_ID, () => new MediumCardView());
@@ -95,7 +115,10 @@ export default class CompanyCommunicatorAdaptiveCardExtension extends BaseAdapti
   }
 
   private async fetchData(aadClient: AadHttpClient, resourceEndpoint: string) {
-    
+    Logger.log({
+      message: "start fetching data",      
+      level: LogLevel.Verbose
+    });    
     const messagesService = new MessagesService(aadClient, resourceEndpoint);
     const items = await messagesService.getSentMessages();
 
@@ -120,6 +143,10 @@ export default class CompanyCommunicatorAdaptiveCardExtension extends BaseAdapti
         currentIndex: 0,
         messages: lastMessages
       });
+      Logger.log({
+        message: "end fetching data",      
+        level: LogLevel.Verbose
+      });  
      });
   }
 }

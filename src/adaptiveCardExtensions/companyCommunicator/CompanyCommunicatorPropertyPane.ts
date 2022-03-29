@@ -42,7 +42,10 @@ export class CompanyCommunicatorPropertyPane {
                   label: 'Message Count',
                   max: 25,
                   min: 1
-                }),       
+                }),
+                PropertyPaneTextField('aiKey', {
+                  label: strings.AppInsightsInstrumentationKeyFieldLabel
+                })       
               ]
             },
             {

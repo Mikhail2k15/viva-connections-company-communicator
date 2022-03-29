@@ -9,10 +9,13 @@
     "test": "gulp test"
   },
   "dependencies": {
+    "@microsoft/applicationinsights-react-js": "^3.0.5",
+    "@microsoft/applicationinsights-web": "^2.5.8",
     "@microsoft/sp-adaptive-card-extension-base": "1.14.0",
     "@microsoft/sp-core-library": "1.14.0",
     "@microsoft/sp-http": "^1.14.0",
-    "@microsoft/sp-property-pane": "1.14.0"
+    "@microsoft/sp-property-pane": "1.14.0",
+    "@pnp/logging": "^3.0.3"
   },
   "devDependencies": {
     "@microsoft/rush-stack-compiler-3.9": "0.4.47",

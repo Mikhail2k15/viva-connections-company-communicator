@@ -3,6 +3,7 @@ declare interface ICompanyCommunicatorAdaptiveCardExtensionStrings {
   TitleFieldLabel: string;
   IconPropertyFieldLabel: string;
   DescriptionFieldLabel: string;
+  AppInsightsInstrumentationKeyFieldLabel: string;
   Title: string;
   SubTitle: string;
   PrimaryText: string;

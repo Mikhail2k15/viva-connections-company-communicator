@@ -4,6 +4,7 @@ define([], function() {
     "TitleFieldLabel": "Card title",
     "IconPropertyFieldLabel": "Card Icon",
     "DescriptionFieldLabel": "Description Field",
+    "AppInsightsInstrumentationKeyFieldLabel": "App Insights Instrumentation Key",
     "Title": "Adaptive Card Extension",
     "SubTitle": "Quick view",
     "PrimaryText": "SPFx Adaptive Card Extension",
