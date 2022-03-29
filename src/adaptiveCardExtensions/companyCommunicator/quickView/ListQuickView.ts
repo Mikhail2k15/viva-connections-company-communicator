@@ -18,7 +18,8 @@ export class ListQuickView extends BaseAdaptiveCardView<
     this.state.messages.forEach(message => {
       let trackInfo = {
         notificationId: message.id,
-        userId: userId
+        userId: userId,
+        quickView: "ListQuickView"
       };
       Logger.log({
         message: "TrackView",

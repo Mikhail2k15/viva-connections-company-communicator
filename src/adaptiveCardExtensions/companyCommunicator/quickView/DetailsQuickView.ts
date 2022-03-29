@@ -20,7 +20,8 @@ export class DetailsQuickView extends BaseAdaptiveCardView<ICompanyCommunicatorA
                  
         let trackInfo = {
             notificationId: message.id,
-            userId: this.context.pageContext.aadInfo.userId._guid
+            userId: this.context.pageContext.aadInfo.userId._guid,
+            quickView: "DetailsQuickView"
         };
         Logger.log({
           message: "TrackView",

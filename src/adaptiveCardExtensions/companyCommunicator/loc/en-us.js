@@ -11,7 +11,7 @@ define([], function() {
     "Description": "Create your SPFx Adaptive Card Extension solution!",
     "QuickViewButton": "Quick view",
     "NoMessages": "No messages",
-    "SeeAll": "See all messages",
+    "SeeAll": "View all",
     "MediumCardWelcomeMessage": "Here's some messages you might have missed",
     "Loading": "Loading...",
     "PrevButton": "Previous",
