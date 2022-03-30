@@ -47,7 +47,7 @@ export class DetailsQuickView extends BaseAdaptiveCardView<ICompanyCommunicatorA
                 "id": "1",
                 "type": "Action.OpenUrl",
                 "title": message.buttonTitle,
-                "url": message.buttonLink
+                "url": message.buttonLink                
             }
         ];
         } else {

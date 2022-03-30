@@ -22,8 +22,8 @@
     "officeFabricIconFontName": "megaphone",
     "properties": {
       "title": "Company News",
-      "description": "Company Communicator News",
-      "iconProperty": "", // Default to sharepointlogo
+      "description": "Here's some messages you might have missed",
+      "iconProperty": "megaphone", // Default to sharepointlogo
       "count": 5,
       "summary": true,
       "image": true,

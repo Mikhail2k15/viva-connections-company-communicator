@@ -80,6 +80,14 @@ export default class CompanyCommunicatorAdaptiveCardExtension extends BaseAdapti
     return Promise.resolve();
   }
 
+  public get title(): string {
+    return this.properties.title;
+  }
+
+  protected get iconProperty(): string {
+    return this.properties.iconProperty || 'megaphone';
+  }
+
   protected loadPropertyPaneResources(): Promise<void> {
     return import(
       /* webpackChunkName: 'CompanyCommunicator-property-pane'*/

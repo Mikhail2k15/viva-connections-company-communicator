@@ -3,15 +3,9 @@ declare interface ICompanyCommunicatorAdaptiveCardExtensionStrings {
   TitleFieldLabel: string;
   IconPropertyFieldLabel: string;
   DescriptionFieldLabel: string;
-  AppInsightsInstrumentationKeyFieldLabel: string;
-  Title: string;
-  SubTitle: string;
-  PrimaryText: string;
-  Description: string;
-  QuickViewButton: string;
+  AppInsightsInstrumentationKeyFieldLabel: string;  
   NoMessages: string;
-  SeeAll: string;
-  MediumCardWelcomeMessage: string;
+  SeeAllButton: string;
   Loading: string;
   PrevButton: string;
   NextButton: string;

@@ -52,7 +52,8 @@
                 "id": "${id}",
                 "type": "Action.OpenUrl",              
                 "title": "${buttonTitle}",
-                "url": "${buttonLink}"
+                "url": "${buttonLink}",
+                "style": "positive"
               }
             ]
         }
