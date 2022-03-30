@@ -5,7 +5,7 @@ import { ICompanyCommunicatorAdaptiveCardExtensionProps, ICompanyCommunicatorAda
 export class MediumCardView extends BaseBasicCardView<ICompanyCommunicatorAdaptiveCardExtensionProps, ICompanyCommunicatorAdaptiveCardExtensionState> {
   
   public get data(): IBasicCardParameters {
-    // a loading view
+    
     if (this.state.currentIndex < 0) {      
       return {        
         primaryText: strings.Loading,           
