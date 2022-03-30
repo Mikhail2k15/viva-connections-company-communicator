@@ -1,7 +1,7 @@
-import { BaseAdaptiveCardView, ISPFxAdaptiveCard } from "@microsoft/sp-adaptive-card-extension-base";
+import { BaseAdaptiveCardView, IActionArguments, ISPFxAdaptiveCard } from "@microsoft/sp-adaptive-card-extension-base";
+import { Logger, LogLevel } from "@pnp/logging";
+import { AppInsightsTelemetryTracker } from "../../../service/analytics/AppInsightsTelemetryTracker";
 import { ICompanyCommunicatorAdaptiveCardExtensionProps, ICompanyCommunicatorAdaptiveCardExtensionState } from "../CompanyCommunicatorAdaptiveCardExtension";
-
-
 
 export interface IDetailsQuickViewData {
     title: string;
@@ -13,10 +13,21 @@ export interface IDetailsQuickViewData {
 }
 
 export class DetailsQuickView extends BaseAdaptiveCardView<ICompanyCommunicatorAdaptiveCardExtensionProps,
-ICompanyCommunicatorAdaptiveCardExtensionState,
-IDetailsQuickViewData> {
+  ICompanyCommunicatorAdaptiveCardExtensionState,
+  IDetailsQuickViewData> {
     public get data(): IDetailsQuickViewData {
         const message = this.state.messages[this.state.currentIndex];
+                 
+        let trackInfo = {
+            notificationId: message.id,
+            userId: this.context.pageContext.aadInfo.userId._guid,
+            quickView: "DetailsQuickView"
+        };
+        Logger.log({
+          message: "TrackView",
+          data: trackInfo,
+          level: LogLevel.Info
+        });
         return {
           title: message.title,
           summary: message.summary,
@@ -25,7 +36,7 @@ IDetailsQuickViewData> {
           buttonTitle: message.buttonTitle,
           buttonLink: message.buttonLink,
         };
-      }
+    }    
     
     public get template(): ISPFxAdaptiveCard {
         let card: ISPFxAdaptiveCard =  require('./template/DetailsQuickViewTemplate.json');
@@ -36,7 +47,7 @@ IDetailsQuickViewData> {
                 "id": "1",
                 "type": "Action.OpenUrl",
                 "title": message.buttonTitle,
-                "url": message.buttonLink
+                "url": message.buttonLink                
             }
         ];
         } else {
@@ -44,16 +55,4 @@ IDetailsQuickViewData> {
         }
         return card;
     }
-    
-      /*public onAction(action: IActionArguments): void {
-        if (action.type === 'Submit') {
-          const { id, op } = action.data;
-          switch (id) {
-            case 'prev':
-            case 'next':
-            this.setState({ currentIndex: this.state.currentIndex + op });
-            break;
-          }
-        }
-      }*/ 
 }

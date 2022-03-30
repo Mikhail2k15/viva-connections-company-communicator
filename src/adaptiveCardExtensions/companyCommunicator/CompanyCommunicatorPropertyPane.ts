@@ -16,11 +16,7 @@ export class CompanyCommunicatorPropertyPane {
                 }),
                 PropertyPaneTextField('iconProperty', {
                   label: strings.IconPropertyFieldLabel
-                }),
-                PropertyPaneTextField('description', {
-                  label: strings.DescriptionFieldLabel,
-                  multiline: true
-                })       
+                })                     
               ]
             },
             {
@@ -42,7 +38,10 @@ export class CompanyCommunicatorPropertyPane {
                   label: 'Message Count',
                   max: 25,
                   min: 1
-                }),       
+                }),
+                PropertyPaneTextField('aiKey', {
+                  label: strings.AppInsightsInstrumentationKeyFieldLabel
+                })       
               ]
             },
             {
@@ -56,6 +55,15 @@ export class CompanyCommunicatorPropertyPane {
                   text: 'Show Image field',
                   checked: true
                 })
+              ]
+            },
+            {
+              groupName: 'Medium Card View',
+              groupFields: [
+                PropertyPaneTextField('description', {
+                  label: strings.DescriptionFieldLabel,
+                  multiline: true
+                })  
               ]
             }
           ]

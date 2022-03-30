@@ -18,9 +18,8 @@
         {
           "type": "TextBlock",
           "text": "${title}",
-          "color": "dark",
+          "color": "accent",
           "weight": "Bolder",
-          "size": "large",
           "wrap": true,
           "spacing": "None"
         },

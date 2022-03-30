@@ -1,7 +1,7 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
   "solution": {
-    "name": "viva-connections-company-communicator-client-side-solution",
+    "name": "viva-connections-company-communicator-ace",
     "id": "3fc9dcfa-441e-4727-89fa-8fcb38cc6c37",
     "version": "1.0.0.0",
     "includeClientSideAssets": true,
@@ -16,10 +16,10 @@
     },
     "metadata": {
       "shortDescription": {
-        "default": "viva-connections-company-communicator description"
+        "default": "Company Communicator Adaptive Card Extensions for Viva Connections"
       },
       "longDescription": {
-        "default": "viva-connections-company-communicator description"
+        "default": "Company Communicator Adaptive Card Extensions for Viva Connections"
       },
       "screenshotPaths": [],
       "videoUrl": "",
@@ -27,8 +27,8 @@
     },
     "features": [
       {
-        "title": "viva-connections-company-communicator Feature",
-        "description": "The feature that activates elements of the viva-connections-company-communicator solution.",
+        "title": "Company Communicator Adaptive Card Extensions for Viva Connections Feature",
+        "description": "The feature that activates elements of the Company Communicator Adaptive Card Extensions for Viva Connections solution.",
         "id": "8811a825-0665-41b9-8dc6-46576723100f",
         "version": "1.0.0.0"
       }

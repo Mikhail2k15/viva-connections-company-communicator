@@ -1,4 +1,5 @@
 import { ISPFxAdaptiveCard, BaseAdaptiveCardView, IActionArguments } from '@microsoft/sp-adaptive-card-extension-base';
+import { Logger, LogLevel } from '@pnp/logging';
 import * as strings from 'CompanyCommunicatorAdaptiveCardExtensionStrings';
 import { IMessage } from '../../../service/messages/IMessage';
 import { ICompanyCommunicatorAdaptiveCardExtensionProps, ICompanyCommunicatorAdaptiveCardExtensionState } from '../CompanyCommunicatorAdaptiveCardExtension';
@@ -13,6 +14,20 @@ export class ListQuickView extends BaseAdaptiveCardView<
   IListQuickViewData
 > {
   public get data(): IListQuickViewData {
+    const userId = this.context.pageContext.aadInfo.userId._guid;
+    this.state.messages.forEach(message => {
+      let trackInfo = {
+        notificationId: message.id,
+        userId: userId,
+        quickView: "ListQuickView"
+      };
+      Logger.log({
+        message: "TrackView",
+        data: trackInfo,
+        level: LogLevel.Info
+      });
+    });
+    
     return {
       items: this.state.messages
     };

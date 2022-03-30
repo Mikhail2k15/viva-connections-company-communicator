@@ -5,13 +5,13 @@ import { ICompanyCommunicatorAdaptiveCardExtensionProps, ICompanyCommunicatorAda
 export class MediumCardView extends BaseBasicCardView<ICompanyCommunicatorAdaptiveCardExtensionProps, ICompanyCommunicatorAdaptiveCardExtensionState> {
   
   public get data(): IBasicCardParameters {
-    // a loading view
+    
     if (this.state.currentIndex < 0) {      
       return {        
         primaryText: strings.Loading,           
       };
     } 
-    const primaryText: string = this.state.messages?.length > 0 ? strings.MediumCardWelcomeMessage : strings.NoMessages;
+    const primaryText: string = this.state.messages?.length > 0 ? this.properties.description : strings.NoMessages;
     return {         
         primaryText: primaryText 
     };
@@ -21,7 +21,7 @@ export class MediumCardView extends BaseBasicCardView<ICompanyCommunicatorAdapti
     if (this.state.messages?.length > 0) {
       return [
         {
-          title: strings.SeeAll,
+          title: strings.SeeAllButton,
           action: {
             type: "QuickView",
             parameters: {
