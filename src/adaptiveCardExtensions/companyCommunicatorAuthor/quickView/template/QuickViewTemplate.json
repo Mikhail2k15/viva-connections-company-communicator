@@ -5,24 +5,159 @@
   "body": [
     {
       "type": "TextBlock",
+      "wrap": true,      
+      "color": "accent",      
       "weight": "Bolder",
-      "text": "${title}"
+      "text": "Viva Connections Dashboard usage insights for the last 30 days",
+      "separator": true
     },
     {
-      "type": "ColumnSet",
-      "columns": [
-        {
-          "type": "Column",
-          "items": [
-            {
-              "type": "TextBlock",
-              "weight": "Bolder",
-              "text": "${subTitle}",
-              "wrap": true
-            }
+      "type": "TextBlock",
+      "text": "Plan a remote gathering, create school projects, set health and fitness goals, and manage your household budget with the apps, tools, and features of Microsoft 365.",
+      "wrap": true
+  },
+  {
+      "type": "Container",
+      "selectAction": {
+          "type": "Action.ToggleVisibility",
+          "title": "q1",
+          "targetElements": [
+              "a1",
+              "chevron_up1",
+              "chevron_down1"
           ]
+      },
+      "items": [
+          {
+              "type": "ColumnSet",
+              "columns": [
+                  {
+                      "type": "Column",
+                      "width": "stretch",
+                      "items": [
+                          {
+                              "type": "TextBlock",
+                              "wrap": true,
+                              "text": "Viva Connections Dashboard usage insights for the last 30 days",
+                              "weight": "Bolder",
+                              "spacing": "Large",
+                              "separator": true
+                          }
+                      ]
+                  },
+                  {
+                      "type": "Column",
+                      "width": "28px",
+                      "verticalContentAlignment": "Center",
+                      "items": [
+                          {
+                              "type": "Image",
+                              "url": "https://raw.githubusercontent.com/pnp/AdaptiveCards-Templates/main/samples/faq-accordion/assets/ico-up.png",
+                              "width": "20px",
+                              "height": "20px",
+                              "id": "chevron_up1"
+                          },
+                          {
+                              "type": "Image",
+                              "url": "https://raw.githubusercontent.com/pnp/AdaptiveCards-Templates/main/samples/faq-accordion/assets/ico-down.png",
+                              "id": "chevron_down1",
+                              "width": "20px",
+                              "height": "20px",
+                              "isVisible": false
+                          }
+                      ]
+                  }
+              ]
+          }
+      ],
+      "verticalContentAlignment": "Center",
+      "minHeight": "30px",
+      "spacing": "Large",
+      "style": "emphasis"
+  },
+    {
+      "type": "TextBlock",
+      "text": "Microsoft Teams vs SharePoint Portal"
+    },
+    {
+      "type": "FactSet",
+      "separator": true,
+      "style": "emphasis",
+      "facts": [
+        {
+          "title": "Teams",
+          "value": "${msteams}"
+        },
+        {
+          "title": "SharePoint",
+          "value": "${spo}"
+        }        
+      ]
+    },
+    {
+      "type": "TextBlock",
+      "text": "Microsoft Teams Details",
+      "weight": "Bolder"
+    },    
+    {
+      "type": "FactSet",
+      "separator": true,
+      "weight": "Lighter",
+      "facts": [
+        {
+          "title": "Desktop",
+          "value": "${desktop}"
+        },
+        {
+          "title": "Mobile",
+          "value": "${mobile}"
+        },
+        {
+          "title": "Web",
+          "value": "${web}"
+        }
+      ]
+    },
+    {
+      "type": "TextBlock",
+      "wrap": true,      
+      "weight": "Bolder",
+      "text": "Messages from Company Communicator for the last 30 days",     
+      "color": "accent"
+    },
+    {
+      "type": "Container",
+      "$data": "${items}",      
+      "separator": true,
+      "items": [
+        {
+          "type": "TextBlock",
+          "text": "Title: ${title}",
+          "wrap": true,
+          "spacing": "None"
+        },        
+        {
+          "type": "TextBlock",
+          "wrap": true,
+          "size": "Small",
+          "weight": "Lighter",
+          "text": "Sent Date: ${sentFormattedDate}"
+        },
+        {
+          "type": "TextBlock",
+          "wrap": true,
+          "size": "Small",
+          "weight": "Lighter",
+          "text": "Delivered: ${succeeded}"
+        },
+        {
+          "type": "TextBlock",
+          "wrap": true,
+          "size": "Small",
+          "weight": "Lighter",
+          "text": "Viewed: ${viewCount}"
         }
       ]
     }
-  ]
+  ] 
 }

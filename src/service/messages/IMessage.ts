@@ -8,4 +8,17 @@ export interface IMessage {
     author?: string;
     buttonLink?: string;
     buttonTitle?: string;
+
+    sentDate?: Date;
+    sendingStartedDate?: Date;
+    status?: string;
+    succeeded?: number;
+    failed?: number;
+}
+
+export interface IMessageDetails extends IMessage {
+    sendingCompleted?: boolean;
+    viewCount?: number;
+    sentFormattedDate?: string;
+    formattedStatus?: string;
 }

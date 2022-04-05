@@ -6,6 +6,13 @@ declare interface ICompanyCommunicatorAuthorAdaptiveCardExtensionStrings {
   PrimaryText: string;
   Description: string;
   QuickViewButton: string;
+  AppInsightsFieldsGroupName: string;
+  AppInsightsInstrumentationKeyFieldLabel: string;
+  AppInsightsApplicationIDFieldLabel: string;
+  AppInsightsAPIKeyFieldLabel: string;
+  Queued: string;
+  SyncingRecipients: string;
+  InstallingApp: string;
 }
 
 declare module 'CompanyCommunicatorAuthorAdaptiveCardExtensionStrings' {

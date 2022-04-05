@@ -10,32 +10,30 @@ import { ICompanyCommunicatorAuthorAdaptiveCardExtensionProps, ICompanyCommunica
 
 export class CardView extends BaseBasicCardView<ICompanyCommunicatorAuthorAdaptiveCardExtensionProps, ICompanyCommunicatorAuthorAdaptiveCardExtensionState> {
   public get cardButtons(): [ICardButton] | [ICardButton, ICardButton] | undefined {
-    return [
-      {
-        title: strings.QuickViewButton,
-        action: {
-          type: 'QuickView',
-          parameters: {
-            view: QUICK_VIEW_REGISTRY_ID
+    if (this.state.messages && this.state.messages.length > 0 
+      && this.state.messages[0].status === "Sent") {
+      return [
+        {
+          title: strings.QuickViewButton,
+          action: {
+            type: 'QuickView',
+            parameters: {
+              view: QUICK_VIEW_REGISTRY_ID
+            }
           }
         }
-      }
-    ];
+      ];
+    }
   }
 
   public get data(): IBasicCardParameters {
+    let primaryText: string = "loading...";
+    if (this.state.messages && this.state.messages.length > 0) {
+      primaryText = `The last message sending status: ${this.state.messages[0].formattedStatus}`;
+    }
     return {
-      primaryText: strings.PrimaryText,
+      primaryText: primaryText, //The last message was successfully delivered",
       title: this.properties.title
-    };
-  }
-
-  public get onCardSelection(): IQuickViewCardAction | IExternalLinkCardAction | undefined {
-    return {
-      type: 'ExternalLink',
-      parameters: {
-        target: 'https://www.bing.com'
-      }
     };
   }
 }

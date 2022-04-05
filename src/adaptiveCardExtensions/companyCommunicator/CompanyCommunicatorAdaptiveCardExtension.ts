@@ -13,13 +13,13 @@ import { DetailsQuickView } from './quickView/DetailsQuickView';
 import { Logger, LogLevel } from '@pnp/logging';
 import { AppInsightsTelemetryTracker } from '../../service/analytics/AppInsightsTelemetryTracker';
 
-export interface ICompanyCommunicatorAdaptiveCardExtensionProps {
-  aiKey: string;
+export interface ICompanyCommunicatorAdaptiveCardExtensionProps {  
   title: string;
   description: string;
   iconProperty: string;
   applicationIdUri: string;
   resourceEndpoint: string;
+  aiKey: string;
   count: number;
   image: boolean;
   summary: boolean;
