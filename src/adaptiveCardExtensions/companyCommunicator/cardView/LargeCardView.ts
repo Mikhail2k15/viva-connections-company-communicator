@@ -17,7 +17,7 @@ export class LargeCardView extends BaseImageCardView<ICompanyCommunicatorAdaptiv
     if (this.state.currentIndex < 0) {      
       return {        
         primaryText: strings.Loading,
-        imageUrl: this.properties.iconProperty,            
+        imageUrl: this.properties.iconProperty       
       };
     }
 

@@ -1,7 +1,7 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
-  "id": "3e438448-c7d6-4ba0-beee-49804041f2af",
-  "alias": "CompanyCommunicatorAdaptiveCardExtension",
+  "id": "0dc8026e-eb16-47de-893c-b8122473e737",
+  "alias": "CompanyCommunicatorAuthorAdaptiveCardExt",
   "componentType": "AdaptiveCardExtension",
 
   // The "*" signifies that the version should be taken from the package.json
@@ -17,18 +17,12 @@
   "preconfiguredEntries": [{
     "groupId": "bd067b1e-3ad5-4d5d-a5fe-505f07d7f59c", // Dashboard
     "group": { "default": "Dashboard" },
-    "title": { "default": "Company News" },
-    "description": { "default": "Company Communicator News." },
+    "title": { "default": "Company Communicator Author" },
+    "description": { "default": "Company Communicator Insights." },
     "officeFabricIconFontName": "megaphone",
     "properties": {
-      "title": "Company News",
-      "description": "Here's some messages you might have missed",
-      "iconProperty": "megaphone", // Default to sharepointlogo
-      "count": 5,
-      "summary": true,
-      "image": true,
-      "userappid": "148a66bb-e83d-425a-927d-09f4299a9274",
-      "teamsDeepLink": false
+      "title": "Company Communicator Author",
+      "iconProperty": "megaphone"
     }
   }]
 }

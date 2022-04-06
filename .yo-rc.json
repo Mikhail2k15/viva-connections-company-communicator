@@ -1,7 +1,7 @@
 {
   "@microsoft/generator-sharepoint": {
     "plusBeta": false,
-    "isCreatingSolution": true,
+    "isCreatingSolution": false,
     "version": "1.14.0",
     "libraryName": "viva-connections-company-communicator",
     "libraryId": "3fc9dcfa-441e-4727-89fa-8fcb38cc6c37",
@@ -12,6 +12,6 @@
     "skipFeatureDeployment": true,
     "isDomainIsolated": false,
     "componentType": "adaptiveCardExtension",
-    "aceTemplateType": "Image"
+    "aceTemplateType": "Basic"
   }
 }

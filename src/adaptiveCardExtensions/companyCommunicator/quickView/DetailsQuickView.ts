@@ -16,6 +16,7 @@ export class DetailsQuickView extends BaseAdaptiveCardView<ICompanyCommunicatorA
   ICompanyCommunicatorAdaptiveCardExtensionState,
   IDetailsQuickViewData> {
     public get data(): IDetailsQuickViewData {
+        console.log('DetailsQuickView:data()');
         const message = this.state.messages[this.state.currentIndex];
                  
         let trackInfo = {
@@ -28,6 +29,7 @@ export class DetailsQuickView extends BaseAdaptiveCardView<ICompanyCommunicatorA
           data: trackInfo,
           level: LogLevel.Info
         });
+
         return {
           title: message.title,
           summary: message.summary,

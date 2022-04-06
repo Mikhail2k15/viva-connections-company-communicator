@@ -13,13 +13,13 @@ import { DetailsQuickView } from './quickView/DetailsQuickView';
 import { Logger, LogLevel } from '@pnp/logging';
 import { AppInsightsTelemetryTracker } from '../../service/analytics/AppInsightsTelemetryTracker';
 
-export interface ICompanyCommunicatorAdaptiveCardExtensionProps {
-  aiKey: string;
+export interface ICompanyCommunicatorAdaptiveCardExtensionProps {  
   title: string;
   description: string;
   iconProperty: string;
   applicationIdUri: string;
   resourceEndpoint: string;
+  aiKey: string;
   count: number;
   image: boolean;
   summary: boolean;
@@ -66,16 +66,16 @@ export default class CompanyCommunicatorAdaptiveCardExtension extends BaseAdapti
       catch {} 
     }
 
+    if (this.properties.applicationIdUri && this.properties.resourceEndpoint) {
+      this.aadClient = await this.context.aadHttpClientFactory.getClient(this.properties.applicationIdUri);
+      setTimeout(()=> { this.fetchData(this.aadClient, this.properties.resourceEndpoint); }, 500);
+    }
+
     this.cardNavigator.register(LARGE_CARD_VIEW_REGISTRY_ID, () => new LargeCardView());
     this.cardNavigator.register(MEDIUM_CARD_VIEW_REGISTRY_ID, () => new MediumCardView());
 
     this.quickViewNavigator.register(MEDIUM_QUICK_VIEW_REGISTRY_ID, () => new ListQuickView());
     this.quickViewNavigator.register(LARGE_QUICK_VIEW_REGISTRY_ID, () => new DetailsQuickView());
-
-    if (this.properties.applicationIdUri && this.properties.resourceEndpoint) {
-      this.aadClient = await this.context.aadHttpClientFactory.getClient(this.properties.applicationIdUri);
-      setTimeout(()=> { this.fetchData(this.aadClient, this.properties.resourceEndpoint); }, 500);
-    }
 
     return Promise.resolve();
   }
@@ -132,25 +132,31 @@ export default class CompanyCommunicatorAdaptiveCardExtension extends BaseAdapti
 
     const data = items.map(async(item) => {
       const message = await messagesService.getMessage(item.id);
-      if (message.allUsers === true) {
+     
         return { 
-          title: message.title, 
           id: message.id,
+          allUsers: message.allUsers,
+          title: message.title,          
           summary: message.summary, 
           imageLink: message.imageLink, 
           author: message.author, 
           buttonTitle: message.buttonTitle, 
           buttonLink: message.buttonLink
         }; 
-      }
+      
     });
 
     Promise.all(data).then((messages: IMessage[]) => {
-      const lastMessages = messages?.length > this.properties.count ? messages.slice(0, this.properties.count) : messages;
-      this.setState({
-        currentIndex: 0,
-        messages: lastMessages
-      });
+      if (messages?.length > 0) {
+         console.log(messages);
+         const orgWideMessages = messages.filter(m => m.allUsers === true);
+         const lastMessages = orgWideMessages?.length > this.properties.count ? orgWideMessages.slice(0, this.properties.count) : orgWideMessages;
+         this.setState({
+            currentIndex: 0,
+            messages: lastMessages
+          });
+      }
+      
       Logger.log({
         message: "end fetching data",      
         level: LogLevel.Verbose

@@ -9,10 +9,19 @@
           "manifest": "./src/adaptiveCardExtensions/companyCommunicator/CompanyCommunicatorAdaptiveCardExtension.manifest.json"
         }
       ]
+    },
+    "company-communicator-author-adaptive-card-extension": {
+      "components": [
+        {
+          "entrypoint": "./lib/adaptiveCardExtensions/companyCommunicatorAuthor/CompanyCommunicatorAuthorAdaptiveCardExtension.js",
+          "manifest": "./src/adaptiveCardExtensions/companyCommunicatorAuthor/CompanyCommunicatorAuthorAdaptiveCardExtension.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
   "localizedResources": {
-    "CompanyCommunicatorAdaptiveCardExtensionStrings": "lib/adaptiveCardExtensions/companyCommunicator/loc/{locale}.js"
+    "CompanyCommunicatorAdaptiveCardExtensionStrings": "lib/adaptiveCardExtensions/companyCommunicator/loc/{locale}.js",
+    "CompanyCommunicatorAuthorAdaptiveCardExtensionStrings": "lib/adaptiveCardExtensions/companyCommunicatorAuthor/loc/{locale}.js"
   }
 }

@@ -1,5 +1,5 @@
 import { AadHttpClient } from "@microsoft/sp-http";
-import { IMessage } from "./IMessage";
+import { IMessage, IMessageDetails } from "./IMessage";
 import { IMessagesService } from "./IMessagesService";
 import { MessagesServiceError } from "./MessagesServiceError";
 
@@ -44,6 +44,18 @@ export class MessagesService implements IMessagesService {
         catch (error) {
             throw new Error("Method not implemented.");
         }        
+    }
+
+    public async getMessageDetails(id: string): Promise<IMessageDetails> {
+        try {
+            const httpResponse = await this.aadClient.get(`${this.baseUrl}/api/sentnotifications/${id}`, 
+            AadHttpClient.configurations.v1);
+            const result: IMessageDetails = await httpResponse.json();
+            return result;
+        }
+        catch (error) {
+            throw new Error("Method not implemented.");
+        } 
     }
 }
 
