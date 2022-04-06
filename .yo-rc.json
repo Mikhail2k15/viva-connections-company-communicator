@@ -11,7 +11,6 @@
     "solutionShortDescription": "viva-connections-company-communicator description",
     "skipFeatureDeployment": true,
     "isDomainIsolated": false,
-    "componentType": "adaptiveCardExtension",
-    "aceTemplateType": "Basic"
+    "componentType": "webpart"
   }
 }

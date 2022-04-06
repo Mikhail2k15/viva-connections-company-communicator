@@ -17,11 +17,20 @@
           "manifest": "./src/adaptiveCardExtensions/companyCommunicatorAuthor/CompanyCommunicatorAuthorAdaptiveCardExtension.manifest.json"
         }
       ]
+    },
+    "company-communicator-insights-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/companyCommunicatorInsights/CompanyCommunicatorInsightsWebPart.js",
+          "manifest": "./src/webparts/companyCommunicatorInsights/CompanyCommunicatorInsightsWebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
   "localizedResources": {
     "CompanyCommunicatorAdaptiveCardExtensionStrings": "lib/adaptiveCardExtensions/companyCommunicator/loc/{locale}.js",
-    "CompanyCommunicatorAuthorAdaptiveCardExtensionStrings": "lib/adaptiveCardExtensions/companyCommunicatorAuthor/loc/{locale}.js"
+    "CompanyCommunicatorAuthorAdaptiveCardExtensionStrings": "lib/adaptiveCardExtensions/companyCommunicatorAuthor/loc/{locale}.js",
+    "CompanyCommunicatorInsightsWebPartStrings": "lib/webparts/companyCommunicatorInsights/loc/{locale}.js"
   }
 }
