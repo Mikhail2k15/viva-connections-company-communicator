@@ -10,74 +10,11 @@
       "weight": "Bolder",
       "text": "Viva Connections Dashboard usage insights for the last 30 days",
       "separator": true
-    },
+    },  
     {
       "type": "TextBlock",
-      "text": "Plan a remote gathering, create school projects, set health and fitness goals, and manage your household budget with the apps, tools, and features of Microsoft 365.",
-      "wrap": true
-  },
-  {
-      "type": "Container",
-      "selectAction": {
-          "type": "Action.ToggleVisibility",
-          "title": "q1",
-          "targetElements": [
-              "a1",
-              "chevron_up1",
-              "chevron_down1"
-          ]
-      },
-      "items": [
-          {
-              "type": "ColumnSet",
-              "columns": [
-                  {
-                      "type": "Column",
-                      "width": "stretch",
-                      "items": [
-                          {
-                              "type": "TextBlock",
-                              "wrap": true,
-                              "text": "Viva Connections Dashboard usage insights for the last 30 days",
-                              "weight": "Bolder",
-                              "spacing": "Large",
-                              "separator": true
-                          }
-                      ]
-                  },
-                  {
-                      "type": "Column",
-                      "width": "28px",
-                      "verticalContentAlignment": "Center",
-                      "items": [
-                          {
-                              "type": "Image",
-                              "url": "https://raw.githubusercontent.com/pnp/AdaptiveCards-Templates/main/samples/faq-accordion/assets/ico-up.png",
-                              "width": "20px",
-                              "height": "20px",
-                              "id": "chevron_up1"
-                          },
-                          {
-                              "type": "Image",
-                              "url": "https://raw.githubusercontent.com/pnp/AdaptiveCards-Templates/main/samples/faq-accordion/assets/ico-down.png",
-                              "id": "chevron_down1",
-                              "width": "20px",
-                              "height": "20px",
-                              "isVisible": false
-                          }
-                      ]
-                  }
-              ]
-          }
-      ],
-      "verticalContentAlignment": "Center",
-      "minHeight": "30px",
-      "spacing": "Large",
-      "style": "emphasis"
-  },
-    {
-      "type": "TextBlock",
-      "text": "Microsoft Teams vs SharePoint Portal"
+      "text": "Microsoft Teams vs SharePoint Portal",
+      "weight": "Bolder"
     },
     {
       "type": "FactSet",
@@ -135,13 +72,6 @@
           "text": "Title: ${title}",
           "wrap": true,
           "spacing": "None"
-        },        
-        {
-          "type": "TextBlock",
-          "wrap": true,
-          "size": "Small",
-          "weight": "Lighter",
-          "text": "Sent Date: ${sentFormattedDate}"
         },
         {
           "type": "TextBlock",

@@ -18,10 +18,11 @@
     "groupId": "bd067b1e-3ad5-4d5d-a5fe-505f07d7f59c", // Dashboard
     "group": { "default": "Dashboard" },
     "title": { "default": "Company Communicator Author" },
-    "description": { "default": "Company Communicator Author description" },
-    "officeFabricIconFontName": "SharePointLogo",
+    "description": { "default": "Company Communicator Insights." },
+    "officeFabricIconFontName": "megaphone",
     "properties": {
-      "title": "Company Communicator Author"
+      "title": "Company Communicator Author",
+      "iconProperty": "megaphone"
     }
   }]
 }

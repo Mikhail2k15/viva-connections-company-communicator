@@ -5,7 +5,7 @@ declare interface ICompanyCommunicatorAdaptiveCardExtensionStrings {
   DescriptionFieldLabel: string;
   AppInsightsInstrumentationKeyFieldLabel: string;  
   NoMessages: string;
-  SeeAllButton: string;
+  ViewAllButton: string;
   Loading: string;
   PrevButton: string;
   NextButton: string;

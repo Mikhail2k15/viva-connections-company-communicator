@@ -6,9 +6,9 @@ define([], function() {
     "DescriptionFieldLabel": "Heading",
     "AppInsightsInstrumentationKeyFieldLabel": "App Insights Instrumentation Key",    
     "NoMessages": "No messages",
-    "SeeAll": "View all",
+    "ViewAllButton": "View all",
     "Loading": "Loading...",
-    "PrevButton": "Previous",
-    "NextButton": "Next",
+    "PrevButton": "<<",
+    "NextButton": ">>",
   }
 });

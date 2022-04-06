@@ -21,7 +21,7 @@ export class MediumCardView extends BaseBasicCardView<ICompanyCommunicatorAdapti
     if (this.state.messages?.length > 0) {
       return [
         {
-          title: strings.SeeAllButton,
+          title: strings.ViewAllButton,
           action: {
             type: "QuickView",
             parameters: {
