@@ -8,12 +8,18 @@
     "skipFeatureDeployment": true,
     "isDomainIsolated": false,
     "developer": {
-      "name": "",
-      "websiteUrl": "",
+      "name": "Michael Bondarevsky",
+      "websiteUrl": "bondarevsky@gmail.com",
       "privacyUrl": "",
       "termsOfUseUrl": "",
       "mpnId": "Undefined-1.14.0"
     },
+    "webApiPermissionRequests": [
+      {
+        "resource": "Company Communicator App",
+        "scope": "access_as_user"
+      }
+    ],
     "metadata": {
       "shortDescription": {
         "default": "Company Communicator Adaptive Card Extensions for Viva Connections"
