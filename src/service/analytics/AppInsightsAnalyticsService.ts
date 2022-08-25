@@ -3,6 +3,24 @@ import { Logger, LogLevel } from "@pnp/logging";
 import { TimeSpan } from "./TimeSpan";
 
 
+    
+// {"tables":[{"name":"PrimaryResult","columns":[{"name":"dcount_session_Id","type":"long"}],"rows":[[4]]}]}
+
+interface QueryResponse {
+    tables: Table[];
+}
+  
+interface Table {
+    name: string;
+    columns: Column[];
+    rows: string[][];
+}
+  
+interface Column {
+    name: string;
+    type: string;
+}
+
 export default class AppInsightsAnalyticsService {
     private appInsightsEndpoint: string = 'https://api.applicationinsights.io/v1/apps';
     private httpClient: HttpClient;
@@ -17,37 +35,22 @@ export default class AppInsightsAnalyticsService {
         this.requestHeaders.append('x-api-key', appKey);
         this.httpClientOptions = { headers: this.requestHeaders };
     }
-    
-    private executeQuery = async (queryUrl: string): Promise<any> => {
-        let response: HttpClientResponse = await this.httpClient.get(queryUrl, HttpClient.configurations.v1, this.httpClientOptions);
+
+    private executeQuery = async (queryUrl: string): Promise<QueryResponse> => {
+        const response: HttpClientResponse = await this.httpClient.get(queryUrl, HttpClient.configurations.v1, this.httpClientOptions);
         return await response.json();
     }
 
-    public getQueryResultAsync = async (query: string, timespan?: TimeSpan): Promise<any[]>=>{
+    public getSingleNumberQueryResultAsync = async (query: string, timespan?: TimeSpan): Promise<number>=>{
         Logger.log({ message: timespan, level: LogLevel.Verbose});
-        let queryUrl: string = timespan ? `timespan=${timespan}&query=${encodeURIComponent(query)}` : `query=${encodeURIComponent(query)}`;
-        let url: string = this.appInsightsEndpoint + `/query?${queryUrl}`; 
+        const queryUrl: string = timespan ? `timespan=${timespan}&query=${encodeURIComponent(query)}` : `query=${encodeURIComponent(query)}`;
+        const url: string = this.appInsightsEndpoint + `/query?${queryUrl}`; 
 
-        let resp: any = await this.executeQuery(url);
-        let result: any[] = [];
+        const resp: QueryResponse = await this.executeQuery(url);
+        let result: number = 0;
         if (resp.tables.length > 0){
-            result = resp.tables[0].rows;
+            result = parseInt(resp.tables[0].rows[0][0]);
         }
         return result;
-    }
-
-
-    public getQueryResult = (query: string, timespan?: TimeSpan) =>{
-        Logger.log({ message: timespan, level: LogLevel.Verbose});
-        let queryUrl: string = timespan ? `timespan=${timespan}&query=${encodeURIComponent(query)}` : `query=${encodeURIComponent(query)}`;
-        let url: string = this.appInsightsEndpoint + `/query?${queryUrl}`; 
-
-        this.executeQuery(url).then(resp => {
-            let result: any[] = [];
-            if (resp.tables.length > 0){
-                result = resp.tables[0].rows;
-            }
-            return result;
-        });        
     }
 }

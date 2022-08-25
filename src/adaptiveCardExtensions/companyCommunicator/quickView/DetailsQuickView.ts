@@ -1,6 +1,5 @@
-import { BaseAdaptiveCardView, IActionArguments, ISPFxAdaptiveCard } from "@microsoft/sp-adaptive-card-extension-base";
+import { BaseAdaptiveCardView, ISPFxAdaptiveCard } from "@microsoft/sp-adaptive-card-extension-base";
 import { Logger, LogLevel } from "@pnp/logging";
-import { AppInsightsTelemetryTracker } from "../../../service/analytics/AppInsightsTelemetryTracker";
 import { ICompanyCommunicatorAdaptiveCardExtensionProps, ICompanyCommunicatorAdaptiveCardExtensionState } from "../CompanyCommunicatorAdaptiveCardExtension";
 
 export interface IDetailsQuickViewData {
@@ -19,7 +18,7 @@ export class DetailsQuickView extends BaseAdaptiveCardView<ICompanyCommunicatorA
         console.log('DetailsQuickView:data()');
         const message = this.state.messages[this.state.currentIndex];
                  
-        let trackInfo = {
+        const trackInfo = {
             notificationId: message.id,
             userId: this.context.pageContext.aadInfo.userId._guid,
             quickView: "DetailsQuickView"
@@ -41,7 +40,7 @@ export class DetailsQuickView extends BaseAdaptiveCardView<ICompanyCommunicatorA
     }    
     
     public get template(): ISPFxAdaptiveCard {
-        let card: ISPFxAdaptiveCard =  require('./template/DetailsQuickViewTemplate.json');
+        const card: ISPFxAdaptiveCard = require('./template/DetailsQuickViewTemplate.json');
         const message = this.state.messages[this.state.currentIndex];
         if (message.buttonLink){
             card.actions = [

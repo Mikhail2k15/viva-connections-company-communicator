@@ -3,17 +3,23 @@
   "solution": {
     "name": "viva-connections-company-communicator-ace",
     "id": "3fc9dcfa-441e-4727-89fa-8fcb38cc6c37",
-    "version": "1.0.0.0",
+    "version": "1.0.0.1",
     "includeClientSideAssets": true,
     "skipFeatureDeployment": true,
     "isDomainIsolated": false,
     "developer": {
-      "name": "",
-      "websiteUrl": "",
+      "name": "Michael Bondarevsky",
+      "websiteUrl": "bondarevsky@gmail.com",
       "privacyUrl": "",
       "termsOfUseUrl": "",
       "mpnId": "Undefined-1.14.0"
     },
+    "webApiPermissionRequests": [
+      {
+        "resource": "Company Communicator App",
+        "scope": "access_as_user"
+      }
+    ],
     "metadata": {
       "shortDescription": {
         "default": "Company Communicator Adaptive Card Extensions for Viva Connections"
@@ -30,7 +36,7 @@
         "title": "Company Communicator Adaptive Card Extensions for Viva Connections Feature",
         "description": "The feature that activates elements of the Company Communicator Adaptive Card Extensions for Viva Connections solution.",
         "id": "8811a825-0665-41b9-8dc6-46576723100f",
-        "version": "1.0.0.0"
+        "version": "1.0.0.1"
       }
     ]
   },

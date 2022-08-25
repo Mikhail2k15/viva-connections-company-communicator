@@ -1,17 +1,11 @@
 import { AadHttpClient } from "@microsoft/sp-http";
 import { IMessage, IMessageDetails } from "./IMessage";
 import { IMessagesService } from "./IMessagesService";
-import { MessagesServiceError } from "./MessagesServiceError";
+import { MessagesServiceException } from "./MessagesServiceException";
 
 export class MessagesService implements IMessagesService {
 
-    constructor(private aadClient: AadHttpClient, private baseUrl: string) { 
-        if (aadClient === undefined){
-            throw new Error('error null agrument aadClient');
-        }
-        if (baseUrl === undefined){
-            throw new Error('error null argument serviceBaseUrl');
-        }
+    constructor(private aadClient: AadHttpClient, private baseUrl: string) {
         this.aadClient = aadClient;
         this.baseUrl = baseUrl;
     }
@@ -21,17 +15,11 @@ export class MessagesService implements IMessagesService {
             const httpResponse = await this.aadClient.get(`${this.baseUrl}/api/sentnotifications`, 
             AadHttpClient.configurations.v1);
 
-            if (httpResponse.status === 403){
-                throw new MessagesServiceError('error forbidden');
-            } else if (httpResponse.status !== 200){
-                throw new MessagesServiceError('error retrieve messages');
-            }
-
             const result: IMessage[] = await httpResponse.json();
             return result;
         }
         catch (error) {
-
+            throw new MessagesServiceException(`Can't getSentMessages, error: ${error}`);
         }
     }
     public async getMessage(id: string): Promise<IMessage> {
@@ -42,7 +30,8 @@ export class MessagesService implements IMessagesService {
             return result;
         }
         catch (error) {
-            throw new Error("Method not implemented.");
+            console.log(error);
+            throw new MessagesServiceException(`Can't getMessage with ${id}, error: ${error}`);
         }        
     }
 
@@ -54,7 +43,8 @@ export class MessagesService implements IMessagesService {
             return result;
         }
         catch (error) {
-            throw new Error("Method not implemented.");
+            console.log(error);
+            throw new MessagesServiceException(`Can't getMessageDetails with ${id}, error: ${error}`);
         } 
     }
 }
