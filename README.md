@@ -26,6 +26,9 @@ Short summary on functionality and used technologies.
 Author(s)
 Michael Bondarevsky | https://www.linkedin.com/in/bondarevsky/
 
+## How to deploy solution 
+https://github.com/Mikhail2k15/viva-connections-company-communicator/wiki/Deployment-Guide
+
 ## Version history
 
 | Version | Date            | Comments                |
@@ -37,7 +40,7 @@ Michael Bondarevsky | https://www.linkedin.com/in/bondarevsky/
 
 **THIS CODE IS PROVIDED _AS IS_ WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**
 
-## Minimal Path to Awesome
+## How to build solution
 
 - Clone this repository
 - Ensure that you are at the solution folder
