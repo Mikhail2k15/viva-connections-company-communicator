@@ -1,4 +1,4 @@
-export class MessagesServiceError extends Error {
+export class MessagesServiceException extends Error {
     constructor(message: string) {
         super(message);
     }

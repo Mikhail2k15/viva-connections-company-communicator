@@ -62,12 +62,14 @@ export default class CompanyCommunicatorAuthorAdaptiveCardExtension extends Base
         data: { aiKey: this.properties.aiKey },
         level: LogLevel.Verbose
       });
-      let ai = new AppInsightsTelemetryTracker(this.properties.aiKey);
+      const ai = new AppInsightsTelemetryTracker(this.properties.aiKey);
       try{
         
         Logger.subscribe(ai);   
       }
-      catch {} 
+      catch {
+        console.log("can't initialize logger");
+      } 
     }
 
     if (this.properties.applicationIdUri && this.properties.resourceEndpoint 
@@ -150,7 +152,7 @@ export default class CompanyCommunicatorAuthorAdaptiveCardExtension extends Base
   }
 
   private renderSendingText = (message: any) => {
-    var text = "";
+    let text = "";
     switch (message.status) {
         case "Queued":
             text = strings.Queued;
@@ -162,7 +164,7 @@ export default class CompanyCommunicatorAuthorAdaptiveCardExtension extends Base
             text = strings.InstallingApp;
             break;
         case "Sending":
-            let sentCount =
+            const sentCount =
                 (message.succeeded ? message.succeeded : 0) +
                 (message.failed ? message.failed : 0) +
                 (message.unknown ? message.unknown : 0);
@@ -171,7 +173,7 @@ export default class CompanyCommunicatorAuthorAdaptiveCardExtension extends Base
             text = `Sending... ${sentCount} of ${message.totalMessageCount}`;
             break;
         case "Sent":
-          let sentCount2 =
+          const sentCount2 =
                 (message.succeeded ? message.succeeded : 0) +
                 (message.failed ? message.failed : 0) +
                 (message.unknown ? message.unknown : 0);
@@ -185,34 +187,22 @@ export default class CompanyCommunicatorAuthorAdaptiveCardExtension extends Base
     return text;
   }  
 
-  private getInsights = async (appInsightsSvc: AppInsightsAnalyticsService) => {
-    console.log('begin getInsights');
-    const resultToday: any[] = await VivaConnectionsInsights.getTodaySessions(appInsightsSvc);
-    
-    const monthlyCount: any[] = await VivaConnectionsInsights.getMonthlySessions(appInsightsSvc);
-    const resultMobile: any[] = await VivaConnectionsInsights.getMobileSessions(appInsightsSvc, TimeSpan['30 days']);
-    const resultDesktop: any[] = await VivaConnectionsInsights.getDesktopSessions(appInsightsSvc, TimeSpan['30 days']);
-    const resultWeb: any[] = await VivaConnectionsInsights.getWebSessions(appInsightsSvc, TimeSpan['30 days']);
-    const resultSPO: any[] = await VivaConnectionsInsights.getSharePointSessions(appInsightsSvc, TimeSpan['30 days']);  
+  private getInsights = async (appInsightsSvc: AppInsightsAnalyticsService): Promise<void> => {
+    const resultToday =  await VivaConnectionsInsights.getTodaySessions(appInsightsSvc);
+    const monthlyCount = await VivaConnectionsInsights.getMonthlySessions(appInsightsSvc);
+    const resultMobile = await VivaConnectionsInsights.getMobileSessions(appInsightsSvc, TimeSpan['30 days']);
+    const resultDesktop = await VivaConnectionsInsights.getDesktopSessions(appInsightsSvc, TimeSpan['30 days']);
+    const resultWeb = await VivaConnectionsInsights.getWebSessions(appInsightsSvc, TimeSpan['30 days']);
+    const resultSPO = await VivaConnectionsInsights.getSharePointSessions(appInsightsSvc, TimeSpan['30 days']);  
 
-    Promise.all([resultToday, monthlyCount, resultDesktop, resultMobile, resultWeb, resultSPO]).then(()=>{
-      Logger.log({
-        message: "All counts",
-        data: { thisState: this.state },
-        level: LogLevel.Verbose
+    this.setState(
+      {
+        today: resultToday,
+        monthly: monthlyCount,
+        desktop: resultDesktop,
+        mobile: resultMobile,
+        web: resultWeb,
+        spo: resultSPO,
       });
-      
-      this.setState(
-        {
-          today: resultToday?.length == 1 ? resultToday[0] : 0,
-          monthly: monthlyCount?.length == 1 ? monthlyCount[0] : 0,
-          desktop: resultDesktop?.length == 1 ? resultDesktop[0] : 0,
-          mobile: resultMobile?.length == 1 ? resultMobile[0] : 0,
-          web: resultWeb?.length == 1 ? resultWeb[0] : 0,
-          spo: resultSPO?.length == 1 ? resultSPO[0] : 0,
-        });
-        console.log(this.state); 
-        console.log('end getInsights'); 
-    });
   }
 }

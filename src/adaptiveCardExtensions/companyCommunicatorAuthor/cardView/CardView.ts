@@ -1,8 +1,6 @@
 import {
   BaseBasicCardView,
   IBasicCardParameters,
-  IExternalLinkCardAction,
-  IQuickViewCardAction,
   ICardButton
 } from '@microsoft/sp-adaptive-card-extension-base';
 import * as strings from 'CompanyCommunicatorAuthorAdaptiveCardExtensionStrings';

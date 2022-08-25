@@ -48,6 +48,7 @@ export default class CompanyCommunicatorAdaptiveCardExtension extends BaseAdapti
       currentIndex: -1,
       messages: []
     };
+
     Logger.activeLogLevel = LogLevel.Verbose;
 
     if (this.properties.aiKey) {
@@ -56,19 +57,20 @@ export default class CompanyCommunicatorAdaptiveCardExtension extends BaseAdapti
         data: { aiKey: this.properties.aiKey },
         level: LogLevel.Verbose
       });
-      let ai = new AppInsightsTelemetryTracker(this.properties.aiKey);         
+      const ai = new AppInsightsTelemetryTracker(this.properties.aiKey);         
       ai.trackEvent(this.context.deviceContext);
       
-      try{
-        
+      try {
         Logger.subscribe(ai);   
       }
-      catch {} 
+      catch {
+        console.log("can't initialize logger");
+      }  
     }
 
     if (this.properties.applicationIdUri && this.properties.resourceEndpoint) {
       this.aadClient = await this.context.aadHttpClientFactory.getClient(this.properties.applicationIdUri);
-      setTimeout(()=> { this.fetchData(this.aadClient, this.properties.resourceEndpoint); }, 500);
+      setTimeout(async () => { await this.fetchData(this.aadClient, this.properties.resourceEndpoint); }, 500);
     }
 
     this.cardNavigator.register(LARGE_CARD_VIEW_REGISTRY_ID, () => new LargeCardView());
@@ -105,7 +107,7 @@ export default class CompanyCommunicatorAdaptiveCardExtension extends BaseAdapti
   }
 
   protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
-    return this._deferredPropertyPane!.getPropertyPaneConfiguration();
+    return this._deferredPropertyPane?.getPropertyPaneConfiguration();
   }
 
   protected async onPropertyPaneFieldChanged(propertyPath: string, oldValue: any, newValue: any): Promise<void> {
@@ -115,14 +117,14 @@ export default class CompanyCommunicatorAdaptiveCardExtension extends BaseAdapti
 
     if (((propertyPath === 'resourceEndpoint') || (propertyPath === 'count')) && newValue !== oldValue){
       if (newValue){
-        this.fetchData(this.aadClient, this.properties.resourceEndpoint);
+        await this.fetchData(this.aadClient, this.properties.resourceEndpoint);
       } else{
         this.setState({messages: []});
       }
     }
   }
 
-  private async fetchData(aadClient: AadHttpClient, resourceEndpoint: string) {
+  private async fetchData(aadClient: AadHttpClient, resourceEndpoint: string): Promise<void> {
     Logger.log({
       message: "start fetching data",      
       level: LogLevel.Verbose
@@ -146,7 +148,7 @@ export default class CompanyCommunicatorAdaptiveCardExtension extends BaseAdapti
       
     });
 
-    Promise.all(data).then((messages: IMessage[]) => {
+    await Promise.all(data).then((messages: IMessage[]) => {
       if (messages?.length > 0) {
          console.log(messages);
          const orgWideMessages = messages.filter(m => m.allUsers === true);

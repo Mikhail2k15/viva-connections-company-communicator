@@ -1,5 +1,8 @@
 import { IMessage } from "./IMessage";
 
+/**
+ * Defines the abstract interface for the Company Communicator API
+ */
 export interface IMessagesService {
     /**
      * Retrieves the last sent 25 messages.     

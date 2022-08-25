@@ -1,9 +1,5 @@
 import { ISPFxAdaptiveCard, BaseAdaptiveCardView } from '@microsoft/sp-adaptive-card-extension-base';
-import { Logger, LogLevel } from '@pnp/logging';
 import * as strings from 'CompanyCommunicatorAuthorAdaptiveCardExtensionStrings';
-import AppInsightsAnalyticsService from '../../../service/analytics/AppInsightsAnalyticsService';
-import { TimeSpan } from '../../../service/analytics/TimeSpan';
-import VivaConnectionsInsights from '../../../service/analytics/VivaConnectionsInsights';
 import { IMessageDetails } from '../../../service/messages/IMessage';
 import { ICompanyCommunicatorAuthorAdaptiveCardExtensionProps, ICompanyCommunicatorAuthorAdaptiveCardExtensionState } from '../CompanyCommunicatorAuthorAdaptiveCardExtension';
 

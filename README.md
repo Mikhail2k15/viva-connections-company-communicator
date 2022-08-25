@@ -6,10 +6,9 @@ Short summary on functionality and used technologies.
 
 ![ACEforCC](https://user-images.githubusercontent.com/11201670/160255163-9a0f4669-3cc1-4a6e-b713-027595fbe517.png)
 
-
 ## Used SharePoint Framework Version
 
-![version](https://img.shields.io/badge/version-1.14-green.svg)
+![version](https://img.shields.io/badge/version-1.15.2-green.svg)
 
 ## Applies to
 
@@ -29,14 +28,21 @@ Michael Bondarevsky | https://www.linkedin.com/in/bondarevsky/
 
 ## Version history
 
-Version|Date|Comments
--------|----|--------
-1.0|Mar 26, 2022|Initial release
+| Version | Date            | Comments                |
+| ------- | --------------- | ----------------------- |
+| 1.0.1   | August 26, 2022 | Upgrade to spfx v1.15.2 |
+| 1.0.0   | Mar 26, 2022    | Initial release         |
 
 ## Disclaimer
 
-**THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**
+**THIS CODE IS PROVIDED _AS IS_ WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**
 
----
+## Minimal Path to Awesome
 
-
+- Clone this repository
+- Ensure that you are at the solution folder
+- In the command-line run:
+  - **npm install**
+  - **gulp serve --nobrowser**
+  - **gulp bundle --ship**
+  - **gulp package-solution --ship**

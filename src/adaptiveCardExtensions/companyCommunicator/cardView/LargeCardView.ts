@@ -67,7 +67,7 @@ export class LargeCardView extends BaseImageCardView<ICompanyCommunicatorAdaptiv
   }
 
   public onAction(action: IActionArguments | ISubmitActionArguments): void {
-    let submitAction = action as ISubmitActionArguments;
+    const submitAction = action as ISubmitActionArguments;
     if (submitAction) {
       const { id, op } = submitAction.data;
       switch (id) {
