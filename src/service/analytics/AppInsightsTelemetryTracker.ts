@@ -9,7 +9,7 @@ import { ReactPlugin } from '@microsoft/applicationinsights-react-js';
 import { createBrowserHistory } from "history";
 
 const APP_NAME = 'COMPANY_COMMUNICATOR_ACE';
-const APP_VERSION = '1.0.2';
+const APP_VERSION = '1.0.1';
 
 export class AppInsightsTelemetryTracker implements ILogListener {
     private static appInsightsInstance: ApplicationInsights;
