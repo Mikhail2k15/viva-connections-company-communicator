@@ -110,6 +110,7 @@ export default class CompanyCommunicatorAdaptiveCardExtension extends BaseAdapti
     return this._deferredPropertyPane?.getPropertyPaneConfiguration();
   }
 
+  /* eslint-disable  @typescript-eslint/no-explicit-any */
   protected async onPropertyPaneFieldChanged(propertyPath: string, oldValue: any, newValue: any): Promise<void> {
     if (propertyPath === 'applicationIdUri' && newValue !== oldValue) { 
       this.aadClient = await this.context.aadHttpClientFactory.getClient(this.properties.applicationIdUri);
