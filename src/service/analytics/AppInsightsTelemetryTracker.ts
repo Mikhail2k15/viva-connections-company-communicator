@@ -54,6 +54,7 @@ export class AppInsightsTelemetryTracker implements ILogListener {
             }
     }
 
+    /* eslint-disable  @typescript-eslint/no-explicit-any */
     public trackEvent(name: string, customProperties?: any): void {
         if (AppInsightsTelemetryTracker.appInsightsInstance) {
             AppInsightsTelemetryTracker.appInsightsInstance.trackEvent(

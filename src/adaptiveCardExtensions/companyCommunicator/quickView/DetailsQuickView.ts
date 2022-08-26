@@ -40,6 +40,7 @@ export class DetailsQuickView extends BaseAdaptiveCardView<ICompanyCommunicatorA
     }    
     
     public get template(): ISPFxAdaptiveCard {
+        /* eslint-disable  @typescript-eslint/no-var-requires */
         const card: ISPFxAdaptiveCard = require('./template/DetailsQuickViewTemplate.json');
         const message = this.state.messages[this.state.currentIndex];
         if (message.buttonLink){
