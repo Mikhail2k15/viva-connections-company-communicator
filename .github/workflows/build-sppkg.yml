@@ -1,0 +1,43 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build and bundle sppkg package
+
+name: Build sppkg
+
+on:
+  workflow_dispatch:
+    inputs:
+      releaseTag:
+        description: 'Release Tag'
+        required: true
+env:
+  sppkg: viva-connections-company-communicator.sppkg
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js and build solution
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'npm'
+      - run: npm ci
+      - run: gulp build
+
+      - name: Bundle and package solution
+        run: |
+          gulp bundle --ship
+          gulp package-solution --ship
+          
+      - name: Create release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create ${{ github.event.inputs.releaseTag }} --generate-notes
+          gh release upload ${{ github.event.inputs.releaseTag }} ${{ github.workspace }}/sharepoint/solution/${{env.sppkg}}
+        
+        
+
+
