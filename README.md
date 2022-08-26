@@ -2,7 +2,7 @@
 
 ## Summary
 
-Short summary on functionality and used technologies.
+Adaptive Card Extensions for Viva Connections Dashboard shows the latest org-wide communications from Company Communicator to prioritize their visibility and increase readership across your organization. 
 
 ![ACEforCC](https://user-images.githubusercontent.com/11201670/160255163-9a0f4669-3cc1-4a6e-b713-027595fbe517.png)
 
