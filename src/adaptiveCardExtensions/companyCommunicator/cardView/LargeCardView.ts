@@ -48,7 +48,7 @@ export class LargeCardView extends BaseImageCardView<ICompanyCommunicatorAdaptiv
         });
       }
 
-      if (this.state.currentIndex < this.properties.count-1) {
+      if (this.state.currentIndex < this.state.messages.length -1) {
         buttons.push({
           id: "next",
           title: strings.NextButton,
