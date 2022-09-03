@@ -1,6 +1,6 @@
 {
   "name": "viva-connections-company-communicator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": true,
   "main": "lib/index.js",
   "scripts": {
@@ -10,11 +10,12 @@
   },
   "dependencies": {
     "@microsoft/applicationinsights-react-js": "^3.0.5",
-    "@microsoft/applicationinsights-web": "^2.8.6",
+    "@microsoft/applicationinsights-web": "^2.5.10",
     "@microsoft/sp-adaptive-card-extension-base": "1.15.2",
     "@microsoft/sp-core-library": "1.15.2",
     "@microsoft/sp-property-pane": "1.15.2",
     "@pnp/logging": "^3.0.3",
+    "history": "^4.10.1",
     "tslib": "2.3.1"
   },
   "devDependencies": {

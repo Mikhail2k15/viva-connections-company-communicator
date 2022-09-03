@@ -4,12 +4,12 @@ import {
     ILogListener,
     ILogEntry
 } from "@pnp/logging";
-import { ApplicationInsights, SeverityLevel } from '@microsoft/applicationinsights-web';
+import { ApplicationInsights, ITelemetryPlugin, SeverityLevel } from '@microsoft/applicationinsights-web';
 import { ReactPlugin } from '@microsoft/applicationinsights-react-js';
 import { createBrowserHistory } from "history";
 
 const APP_NAME = 'COMPANY_COMMUNICATOR_ACE';
-const APP_VERSION = '1.0.1';
+const APP_VERSION = '1.0.2';
 
 export class AppInsightsTelemetryTracker implements ILogListener {
     private static appInsightsInstance: ApplicationInsights;
@@ -82,6 +82,7 @@ export class AppInsightsTelemetryTracker implements ILogListener {
     private static initializeAI(instrumentationKey?: string): ApplicationInsights {       
         const browserHistory = createBrowserHistory({ basename: '' });
         AppInsightsTelemetryTracker.reactPluginInstance = new ReactPlugin();
+        const plugin: ITelemetryPlugin = AppInsightsTelemetryTracker.reactPluginInstance as unknown as ITelemetryPlugin;
         const appInsights = new ApplicationInsights({
             config: {
                 maxBatchInterval: 0,
@@ -89,7 +90,7 @@ export class AppInsightsTelemetryTracker implements ILogListener {
                 namePrefix: AppInsightsTelemetryTracker.BaseProperties.CustomProps.App_Name,
                 disableFetchTracking: false,
                 disableAjaxTracking: true,
-                extensions: [AppInsightsTelemetryTracker.reactPluginInstance],
+                extensions: [plugin],
                 extensionConfig: {
                     [AppInsightsTelemetryTracker.reactPluginInstance.identifier]: { history: browserHistory }
                 }
